@@ -23,7 +23,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
             mDataBinding = DataBindingUtil.bind((LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.view_dashboard,parent,
                     false)));
-            new RecyclerViewHolder(mDataBinding);
+           return new RecyclerViewHolder(mDataBinding);
         }
         return null;
     }
