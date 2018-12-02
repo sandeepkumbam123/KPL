@@ -23,6 +23,7 @@ public class SplashScreenActivity extends BaseActivity {
             @Override
             public void run() {
                 navigateToNextActivity(SplashScreenActivity.this,NavigationActivity.class);
+                finish();
             }
         };
 
