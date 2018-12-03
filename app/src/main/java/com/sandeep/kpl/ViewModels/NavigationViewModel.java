@@ -8,21 +8,24 @@ public class NavigationViewModel extends BaseObservable {
 
 
     public String userName;
+    private itemClick listener;
 
-    public  NavigationViewModel(String userName) {
+    public  NavigationViewModel(String userName ,itemClick listener) {
         this.userName = userName;
+        this.listener = listener;
          new NavigationModelData(userName);
     }
 
 
 
     public void onViewClicked() {
-      if (Utils.isOnline()) {
-          // get information from the backend and save the page to database
-      } else {
-          // load the page from the backend into the main page ui directly
-      }
+        listener.onClick(userName);
     }
 
+
+
+    public interface itemClick{
+        void onClick(String value);
+    }
 
 }

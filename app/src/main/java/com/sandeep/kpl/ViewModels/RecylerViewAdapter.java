@@ -14,6 +14,11 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
     private static final int GROUP_TYPE = 1;
     private static final int MEMBER_TYPE =2;
     private ViewDashboardBinding mDataBinding;
+    private NavigationViewModel.itemClick clickListener;
+
+    public RecylerViewAdapter(NavigationViewModel.itemClick clickListener) {
+        this.clickListener = clickListener;
+    }
 
     @NonNull
     @Override
@@ -35,7 +40,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.itemView.setViewModel(new NavigationViewModel(Utils.listofNavigationItems()[position]));
+        holder.itemView.setViewModel(new NavigationViewModel(Utils.listofNavigationItems()[position],clickListener));
     }
 
     @Override
@@ -50,4 +55,5 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
             this.itemView = itemView;
         }
     }
+
 }
